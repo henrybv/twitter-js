@@ -14,6 +14,7 @@ app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 
 app.use('/', router);
+app.use('static', express.static(__dirname + '/public'));
 
 app.listen(3000,function(){
  console.log('Example app listening on port 3000!');

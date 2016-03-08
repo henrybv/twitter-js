@@ -4,15 +4,22 @@ var router = express.Router(); // built-in Express method
 
 router.get('/', function (req, res) {
   var tweets = tweetBank.list();
-  res.render( 'index', { title: 'Twitter.js', tweets: tweets } );
+  res.render('index', { title: 'Twitter.js', tweets: tweets } );
 });
 
 router.get('/stylesheets/style.css', function (req, res) {
-  console.log("stylesheet is working (finally, yay!)");
   res.sendFile(__dirname + '/public/stylesheets/style.css');
 });
 
+router.get('/users/:name', function (req, res) {
+  var name = req.params.name;
+  var tweets = tweetBank.find({name: name});
+  res.render('index', { title: 'Twitter.js', tweets: tweets } );
+});
+
 module.exports = router;
+
+
 
 
 
