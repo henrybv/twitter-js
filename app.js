@@ -1,23 +1,19 @@
 var express = require('express');
+var morgan = require('morgan');
+var swig = require('swig');
+var locals = require('./locals.js');
+var tweetBank = require('./tweetBank');
+var router = require('./routes.js');
+
 var app = express();
 
-app.use('/',function(req,res,next) {
-  console.log('reached use');
-  next();
-});
+swig.setDefaults({ cache: false });
 
-app.use('/special',function(req,res,next) {
-  console.log("reached special!")
-  next();
-});
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
 
-app.get('/',function(req,res) {
-  res.send('Server listening');
-});
-
-app.get('/news',function(req,res) {
-  res.send('Ready for Hillary');
-});
+app.use('/', router);
 
 app.listen(3000,function(){
  console.log('Example app listening on port 3000!');

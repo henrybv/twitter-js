@@ -1,6 +1,6 @@
 var express = require('express');
 var tweetBank = require('./tweetBank');
-var router = express.Router();
+var router = express.Router(); // built-in Express method
 
 router.get('/', function (req, res) {
   var tweets = tweetBank.list();
@@ -8,12 +8,15 @@ router.get('/', function (req, res) {
 });
 
 router.get('/stylesheets/style.css', function (req, res) {
-  console.log("hey");
+  console.log("stylesheet is working (finally, yay!)");
   res.sendFile(__dirname + '/public/stylesheets/style.css');
 });
 
 module.exports = router;
 
+
+
+// to practice expressJS methods :
 
 // app.use('/',function(req,res,next) {
 //   console.log('reached use');
