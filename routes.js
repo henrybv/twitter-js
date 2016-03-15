@@ -3,8 +3,6 @@ var tweetBank = require('./tweetBank');
 var bodyParser = require('body-parser');
 var router = express.Router(); // built-in Express method
 
-
-
 router.get('/', function (req, res) {
   var tweets = tweetBank.list();
   res.render('index', { title: 'Twitter.js', tweets: tweets, showForm: true} );
@@ -37,10 +35,6 @@ module.exports = function (io) {
   // ...
   return router;
 };
-
-
-
-
 
 // to practice expressJS methods :
 

@@ -1,4 +1,4 @@
-var locals = {
+mvar locals = {
     title: 'An Example',
     people: [
         { name: 'Gandalf'},
