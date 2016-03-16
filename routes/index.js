@@ -14,7 +14,6 @@ router.get('/stylesheets/style.css', function (req, res) {
 
 module.exports = router;
 
-
 // app.use('/',function(req,res,next) {
 //   console.log('reached use');
 //   next();
